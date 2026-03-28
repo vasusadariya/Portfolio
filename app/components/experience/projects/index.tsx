@@ -1,7 +1,7 @@
-import { useScroll, Text, Edges, Html } from "@react-three/drei";
-import { useFrame, useThree, ThreeEvent, createPortal } from "@react-three/fiber";
+import { useScroll } from "@react-three/drei";
+import { useFrame, useThree } from "@react-three/fiber";
 import gsap from "gsap";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { isMobile } from "react-device-detect";
 import * as THREE from "three";
 import { usePortalStore } from "@stores";
