@@ -2,10 +2,14 @@ import { useEffect, useMemo, useState } from "react";
 import { isMobile } from "react-device-detect";
 import ProjectTile from "./ProjectTile";
 
-import { PROJECTS } from "@constants";
 import { usePortalStore } from "@stores";
+import { Project } from "@types";
 
-const ProjectsCarousel = () => {
+interface ProjectsCarouselProps {
+  projects: Project[];
+}
+
+const ProjectsCarousel = ({ projects }: ProjectsCarouselProps) => {
   const [activeId, setActiveId] = useState<number | null>(null);
   const isActive = usePortalStore((state) => state.activePortalId === "projects");
 
@@ -21,9 +25,9 @@ const ProjectsCarousel = () => {
   const tiles = useMemo(() => {
     const fov = Math.PI;
     const distance = 13;
-    const count = PROJECTS.length;
+    const count = projects.length;
 
-    return PROJECTS.map((project, i) => {
+    return projects.map((project, i) => {
       const angle = (fov / count) * i;
       const z = -distance * Math.sin(angle);
       const x = -distance * Math.cos(angle);
@@ -41,7 +45,7 @@ const ProjectsCarousel = () => {
         />
       );
     });
-  }, [activeId, isActive]);
+  }, [activeId, isActive, projects]);
 
   return (
     <group rotation={[0, -Math.PI / 12, 0]}>

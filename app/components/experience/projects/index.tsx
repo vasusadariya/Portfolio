@@ -1,18 +1,20 @@
-import { useScroll } from "@react-three/drei";
-import { useFrame, useThree } from "@react-three/fiber";
+import { useScroll, Text, Edges, Html } from "@react-three/drei";
+import { useFrame, useThree, ThreeEvent, createPortal } from "@react-three/fiber";
 import gsap from "gsap";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { isMobile } from "react-device-detect";
 import * as THREE from "three";
 import { usePortalStore } from "@stores";
 import { Wanderer } from "../../models/Wanderer";
 import ProjectsCarousel from "./ProjectsCarousel";
 import { TouchPanControls } from "./TouchPanControls";
+import { PROJECTS, SKILLS } from "@constants";
 
 const Projects = () => {
   const { camera } = useThree();
   const isActive = usePortalStore((state) => state.activePortalId === "projects");
   const data = useScroll();
+  const showSkills = usePortalStore((state) => state.showSkills);
 
   useEffect(() => {
     // Hide scrollbar when active.
@@ -38,7 +40,7 @@ const Projects = () => {
   return (
     <group>
       <Wanderer rotation={new THREE.Euler(0, Math.PI / 6, 0)} scale={new THREE.Vector3(1.5, 1.5, 1.5)} position={new THREE.Vector3(0, -1, -1)}/>
-      <ProjectsCarousel />
+      <ProjectsCarousel projects={showSkills ? SKILLS : PROJECTS} />
       { isActive && isMobile && <TouchPanControls /> }
     </group>
   );

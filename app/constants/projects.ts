@@ -1,59 +1,84 @@
 import { Project } from "../types";
 
-// TODO: Move this to API
 export const PROJECTS: Project[] = [
   {
-    title: 'Angular Gulp Seed',
-    date: 'Aug 2016',
-    subtext: 'A basic starter project to initialize project using AngularJS and Gulp. It follows MVC architecture and uses standard app structure.',
-    url: 'https://github.com/mohitvirli/angular-gulp-seed',
+    title: 'Open Source Contribution',
+    date: 'Jan 2025',
+    subtext: 'Solved conditional re-rendering issues in Agora Blockchain Repo using React.js, reducing unnecessary renders by 40%.',
+    url: 'https://github.com/agora-gov-bot/agora-blockchain',
   },
   {
-    title: 'State.js',
-    date: 'Jul 2020',
-    subtext: 'A lightweight library for turning JS objects into observables, providing a convenient API for state management and manipulation.',
-    url: 'https://github.com/mohitvirli/state.js',
-  },
-  {
-    title: 'change-host',
-    date: 'Jul 2020',
-    subtext: 'A CLI tool to manage /etc/hosts entries for local development. It enables quick and easy mapping of IPs to URLs with a single command.',
-    url: 'https://github.com/mohitvirli/change-host',
-  },
-  {
-    title: 'Vaccine Slots Discord Bot',
-    date: 'May 2021',
-    subtext: 'A Discord Bot that sends alerts for COVID-19 vaccine availability based on PIN/district using public APIs.',
-    url: 'https://github.com/mohitvirli/vaccine-slots-discord-bot',
-  },
-  {
-    title: 'Chat bot',
-    date: 'Aug 2024',
-    subtext: 'A streaming chatbot that allows users to switch between different LLMs with custom API keys.',
-    url: 'https://github.com/mohitvirli/chat-bot-vercel',
-  },
-  {
-    title: 'Word Game',
-    date: 'Oct 2024',
-    subtext: 'This word game app offers single and multiplayer modes where players take turns forming words, each starting with the last letter of the previous word.',
-    url: 'https://github.com/mohitvirli/word-game',
-  },
-  {
-    title: 'DJ Gig',
+    title: 'Helper-Buddy',
     date: 'Mar 2025',
-    subtext: 'Hosted a Sundowner event which was recorded and is out on YouTube. Furthermore, I performed a UKG/140 DJ set at a local club.',
-    url: 'https://www.youtube.com/watch?v=oauQSEySkoQ',
+    subtext: 'A role-based service platform connecting users with service partners, with admin dashboard, rich analytics, secure authentication, and a sleek UI.',
+    urls: [
+      { text: 'GitHub', url: 'https://github.com/vasusadariya/HelperBuddy' },
+      { text: 'Live', url: 'https://helperbuddy.vercel.app' },
+    ],
+  },
+  {
+    title: 'MyGovt',
+    date: 'Feb 2025',
+    subtext: 'An online voting system built for DotSlash 8.0 hackathon with role-based auth, Firebase, MongoDB, IPFS for decentralized document storage and blockchain-based hashes.',
+    urls: [
+      { text: 'GitHub', url: 'https://github.com/vasusadariya/MyGovtPlatform' },
+      { text: 'Live', url: 'https://mygovtplatform.vercel.app' },
+    ],
+  },
+  {
+    title: 'Chat App',
+    date: 'Dec 2024',
+    subtext: 'A platform to have chat with your loved ones and strangers by creating room chat using Socket.io and JWT auth.',
+    url: 'https://github.com/vasusadariya/real-time-chat',
+  },
+  {
+    title: 'MindMesh',
+    date: 'Nov 2024',
+    subtext: 'A full-stack blog posting platform where users can come and post their mind\'s mesh, built with React.js, JWT, PostgreSQL, and Prisma ORM.',
+    url: 'https://github.com/vasusadariya/MindMesh',
+  },
+  {
+    title: 'Decentralized Healthcare',
+    date: 'Jan 2025',
+    subtext: 'A platform to provide healthcare services and store patient data in a decentralized way using Solidity, ethers.js, and Hardhat.',
+    url: 'https://github.com/vasusadariya/decentralized-healthcare',
+  },
+  {
+    title: 'Qwykli Platform',
+    date: 'May 2025',
+    subtext: 'Professional home-services platform connecting customers and service providers across Delhi NCR with scalable REST APIs handling 1,000+ daily requests.',
+    urls: [
+      { text: 'App', url: 'https://github.com/vasusadariya/qwykli-Frontend-final' },
+      { text: 'Api', url: 'https://github.com/vasusadariya/Local-Services-Backend-Qwykli' },
+    ],
   },
   {
     title: 'Portfolio',
-    date: 'Apr 2025',
-    subtext: '[Enter a meta joke].',
-    url: 'https://github.com/mohitvirli/mohitvirli.github.io',
+    date: 'Mar 2025',
+    subtext: 'This interactive 3D portfolio built with Next.js, Three.js, and React Three Fiber — the very site you are looking at right now.',
+    url: 'https://github.com/vasusadariya/portfolio',
+  },
+];
+
+export const SKILLS: Project[] = [
+  {
+    title: 'Languages',
+    date: 'Skills',
+    subtext: 'C++, C, JavaScript, TypeScript, Rust, Solidity, SQL',
   },
   {
-    title: 'Focus Clock',
-    date: 'Jun 2025',
-    subtext: 'Developed a minimalist clock featuring a time-remaining indicator.',
-    url: 'https://github.com/mohitvirli/focus-clock',
+    title: 'Frameworks & Libraries',
+    date: 'Skills',
+    subtext: 'React.js, Next.js, Node.js, Express.js, Tailwind CSS, WebSockets',
+  },
+  {
+    title: 'Databases & Tools',
+    date: 'Skills',
+    subtext: 'PostgreSQL, MongoDB, MySQL, Prisma ORM, Docker, GitHub Actions, Git, Postman, JWT, Hardhat',
+  },
+  {
+    title: 'Areas of Interest',
+    date: 'Skills',
+    subtext: 'Smart Contracts, IPFS, AWS, Kubernetes, Cloudflare Workers',
   },
 ];

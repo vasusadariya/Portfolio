@@ -64,6 +64,17 @@ const ProjectTile = ({ project, index, position, rotation, activeId, onClick }: 
         .to(button.scale, { y: hovered ? 1 : 0, x: hovered ? 1 : 0 }, 0)
         .to(button.position, { z: hovered ? 0.3 : -1 }, 0);
     }
+
+    // Animate multiple url buttons (urls array)
+    if (!project.url && project.urls) {
+      const allChildren = projectRef.current.children;
+      for (let idx = 4; idx < allChildren.length; idx++) {
+        const urlBtn = allChildren[idx];
+        hoverAnimRef.current
+          .to(urlBtn.scale, { y: hovered ? 1 : 0, x: hovered ? 1 : 0 }, 0)
+          .to(urlBtn.position, { z: hovered ? 0.3 : -1 }, 0);
+      }
+    }
   }, [hovered]);
 
   useEffect(() => {
@@ -129,10 +140,9 @@ const ProjectTile = ({ project, index, position, rotation, activeId, onClick }: 
         </group>
         <Text
           {...subtitleProps}
-          maxWidth={3.8}
+          maxWidth={3.6}
           position={[-1.9, 2.3, 0.1]}
-          // scale={[0, 0, 1]}
-          fontSize={0.2}>
+          fontSize={0.18}>
           {project.subtext}
         </Text>
         {project.url && (
@@ -156,6 +166,34 @@ const ProjectTile = ({ project, index, position, rotation, activeId, onClick }: 
             </Text>
           </group>
         )}
+        {!project.url && project.urls && project.urls.map((link, i) => (
+          <group
+            key={i}
+            position={[1.3 - i * 1.3, -0.6, -1]}
+            scale={[0, 0, 1]}
+            onClick={(e) => {
+              e.stopPropagation();
+              const button = e.eventObject;
+              gsap.to(button.position, { z: 0, duration: 0.1 })
+                .then(() => gsap.to(button.position, { z: 0.3, duration: 0.3 }));
+              setTimeout(() => window.open(link.url, '_blank'), 50);
+            }}
+            onPointerOver={() => document.body.style.cursor = 'pointer'}
+            onPointerOut={() => document.body.style.cursor = 'auto'}>
+            <mesh>
+              <boxGeometry args={[1.1, 0.4, 0.2]} />
+              <meshBasicMaterial color="#222" />
+              <Edges color="white" lineWidth={1} />
+            </mesh>
+            <Text
+              {...subtitleProps}
+              color="white"
+              position={[-0.4, 0.15, 0.2]}
+              fontSize={0.22}>
+              {link.text.toUpperCase()} ↗
+            </Text>
+          </group>
+        ))}
       </group>
     </group>
   );
