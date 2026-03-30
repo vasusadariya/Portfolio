@@ -71,7 +71,8 @@ const CanvasLoader = (props: { children: React.ReactNode }) => {
           shadows
           style={canvasStyle}
           ref={canvasRef}
-          dpr={[1, 2]}>
+          gl={{ antialias: false, powerPreference: "high-performance" }}
+          dpr={isMobile ? [1, 1.5] : [1, 2]}>
           {/* <Perf/> */}
           <Suspense fallback={null}>
             <ambientLight intensity={0.5} />
