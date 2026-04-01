@@ -1,7 +1,7 @@
 import { useScroll } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 import gsap from "gsap";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { isMobile } from "react-device-detect";
 import * as THREE from "three";
 import { usePortalStore } from "@stores";
@@ -9,16 +9,19 @@ import { Wanderer } from "../../models/Wanderer";
 import ProjectsCarousel from "./ProjectsCarousel";
 import { TouchPanControls } from "./TouchPanControls";
 import { PROJECTS, SKILLS } from "@constants";
+import { Text } from "@react-three/drei";
 
 const Projects = () => {
   const { camera } = useThree();
   const isActive = usePortalStore((state) => state.activePortalId === "projects");
   const data = useScroll();
   const showSkills = usePortalStore((state) => state.showSkills);
+  const [activeId, setActiveId] = useState<number | null>(null);
 
   useEffect(() => {
     // Hide scrollbar when active.
     data.el.style.overflow = isActive ? 'hidden' : 'auto';
+    if (!isActive) setActiveId(null);
     if (isActive) {
       if (isMobile) {
         gsap.to(camera.position, { z: 11.5, y: -39, x: 1, duration: 1 });
@@ -27,6 +30,8 @@ const Projects = () => {
       }
     }
   }, [isActive]);
+
+  // previously quoteRef fillOpacity effect removed
 
   useFrame((state, delta) => {
     if (isActive) {
@@ -40,7 +45,7 @@ const Projects = () => {
   return (
     <group>
       <Wanderer rotation={new THREE.Euler(0, Math.PI / 6, 0)} scale={new THREE.Vector3(1.5, 1.5, 1.5)} position={new THREE.Vector3(0, -1, -1)}/>
-      <ProjectsCarousel projects={showSkills ? SKILLS : PROJECTS} />
+      <ProjectsCarousel projects={showSkills ? SKILLS : PROJECTS} activeId={activeId} setActiveId={setActiveId} />
       { isActive && isMobile && <TouchPanControls /> }
     </group>
   );

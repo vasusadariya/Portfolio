@@ -52,7 +52,14 @@ export const ScrollHint = () => {
   const svgSrc = hintText === 'PAN' ? 'icons/chevrons-left-right.svg' : 'icons/chevrons-up-down.svg';
 
   return (
-    <div className="fixed w-full bottom-5 scroll-hint pointer-events-none z-50" style={{ opacity: 0 }}>
+    <div className="fixed w-full bottom-5 scroll-hint pointer-events-none z-50 flex flex-col items-center justify-center gap-4" style={{ opacity: 0 }}>
+      {/* Quote for Pan / Projects portal */}
+      {hintText === 'PAN' && (
+        <div className="text-white/90 font-serif text-sm uppercase font-medium tracking-[0.15em] drop-shadow-lg pb-2 text-center">
+          &quot;I don&apos;t have dreams. I build systems.&quot;
+        </div>
+      )}
+
       {/* Container holding both PAN and Toggle Skills */}
       <div className="flex flex-row items-center justify-center gap-8">
         

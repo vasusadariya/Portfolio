@@ -5,7 +5,7 @@ export const PROJECTS: Project[] = [
     title: 'Open Source Contribution',
     date: 'Jan 2025',
     subtext: 'Solved conditional re-rendering issues in Agora Blockchain Repo using React.js, reducing unnecessary renders by 40%.',
-    url: 'https://github.com/agora-gov-bot/agora-blockchain',
+    url: 'https://github.com/vasusadariya/Agora-Blockchain',
   },
   {
     title: 'Helper-Buddy',
@@ -13,7 +13,7 @@ export const PROJECTS: Project[] = [
     subtext: 'A role-based service platform connecting users with service partners, with admin dashboard, rich analytics, secure authentication, and a sleek UI.',
     urls: [
       { text: 'GitHub', url: 'https://github.com/vasusadariya/HelperBuddy' },
-      { text: 'Live', url: 'https://helperbuddy.vercel.app' },
+      { text: 'Live', url: 'https://helpperbuddy.vercel.app' },
     ],
   },
   {
@@ -21,8 +21,8 @@ export const PROJECTS: Project[] = [
     date: 'Feb 2025',
     subtext: 'An online voting system built for DotSlash 8.0 hackathon with role-based auth, Firebase, MongoDB, IPFS for decentralized document storage and blockchain-based hashes.',
     urls: [
-      { text: 'GitHub', url: 'https://github.com/vasusadariya/MyGovtPlatform' },
-      { text: 'Live', url: 'https://mygovtplatform.vercel.app' },
+      { text: 'GitHub', url: 'https://github.com/vasusadariya/MyGovt' },
+      { text: 'Live', url: 'https://my-govt-ruddy.vercel.app' },
     ],
   },
   {
@@ -41,7 +41,7 @@ export const PROJECTS: Project[] = [
     title: 'Decentralized Healthcare',
     date: 'Jan 2025',
     subtext: 'A platform to provide healthcare services and store patient data in a decentralized way using Solidity, ethers.js, and Hardhat.',
-    url: 'https://github.com/vasusadariya/decentralized-healthcare',
+    url: 'https://github.com/vasusadariya/Healthcare',
   },
   {
     title: 'Qwykli Platform',

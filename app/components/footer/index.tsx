@@ -6,6 +6,7 @@ import { isMobile } from "react-device-detect";
 import * as THREE from "three";
 import { FOOTER_LINKS } from "../../constants";
 import { FooterLink } from "../../types";
+import { useThemeStore } from "@stores";
 
 const FooterLinkItem = ({ link }: { link: FooterLink }) => {
   const textRef = useRef<THREE.Group>(null);
@@ -86,12 +87,25 @@ const FooterLinkItem = ({ link }: { link: FooterLink }) => {
 
 const Footer = () => {
   const groupRef = useRef<THREE.Group>(null);
+  const quoteRef = useRef<THREE.Mesh>(null);
+  const hasAnimated = useRef(false);
   const data = useScroll();
+  const theme = useThemeStore((state) => state.theme);
 
   useFrame(() => {
     const d = data.range(0.8, 0.2);
     if (groupRef.current) {
       groupRef.current.visible = d > 0;
+      
+      if (d > 0.1 && quoteRef.current && !hasAnimated.current) {
+        hasAnimated.current = true;
+        gsap.fromTo(quoteRef.current.position, {
+          y: -10, // hidden below
+        }, {
+          y: 0, // final position
+          duration: 3,
+        });
+      }
     }
   });
 
@@ -105,10 +119,19 @@ const Footer = () => {
     });
   };
 
+  const quoteFontProps = {
+    font: "./soria-font.ttf",
+    fontSize: 0.6,
+    color: theme.type === 'dark' ? 'white' : '#1a1a1a',
+  };
+
   return (
     <group position={[0, -44, 18]} rotation={[-Math.PI / 2, 0, 0]} ref={groupRef}>
       <group position={[isMobile ? -2.5 : -4, 0, 0]}>
         { getLinks() }
+      </group>
+      <group position={[0, 0, -2]}>
+        <Text position={[0, -10, 0]} {...quoteFontProps} ref={quoteRef}>“Real artists ship.” — Steve Jobs</Text>
       </group>
     </group>
   );

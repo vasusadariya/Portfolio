@@ -7,15 +7,14 @@ import { Project } from "@types";
 
 interface ProjectsCarouselProps {
   projects: Project[];
+  activeId: number | null;
+  setActiveId: (id: number | null) => void;
 }
 
-const ProjectsCarousel = ({ projects }: ProjectsCarouselProps) => {
-  const [activeId, setActiveId] = useState<number | null>(null);
+const ProjectsCarousel = ({ projects, activeId, setActiveId }: ProjectsCarouselProps) => {
   const isActive = usePortalStore((state) => state.activePortalId === "projects");
 
-  useEffect(() => {
-    if (!isActive) setActiveId(null);
-  }, [isActive]);
+  // internal activeId effect removed as it is now lifted to parent
 
   const onClick = (id: number) => {
     if (!isMobile) return;
