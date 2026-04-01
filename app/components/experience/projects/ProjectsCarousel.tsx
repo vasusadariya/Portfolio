@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 import { isMobile } from "react-device-detect";
 import ProjectTile from "./ProjectTile";
 
