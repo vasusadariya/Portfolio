@@ -1,6 +1,6 @@
 import { Text, useScroll } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { usePortalStore, useThemeStore } from "@stores";
+import { usePortalStore } from "@stores";
 import { useRef } from "react";
 import { isMobile } from "react-device-detect";
 import * as THREE from 'three';
@@ -10,11 +10,9 @@ import Work from "./work";
 
 const Experience = () => {
   const titleRef = useRef<THREE.Group>(null);
-  const quoteRef = useRef<THREE.Mesh>(null);
   const groupRef = useRef<THREE.Group>(null);
   const data = useScroll();
   const isActive = usePortalStore((state) => !!state.activePortalId);
-  const theme = useThemeStore((state) => state.theme);
 
   const fontProps = {
     font: "./soria-font.ttf",
@@ -38,11 +36,6 @@ const Experience = () => {
         /* eslint-disable  @typescript-eslint/no-explicit-any */
         (text as any).fillOpacity = e;
       });
-    }
-
-    if (quoteRef.current) {
-      /* eslint-disable  @typescript-eslint/no-explicit-any */
-      (quoteRef.current as any).fillOpacity = e;
     }
   });
 
