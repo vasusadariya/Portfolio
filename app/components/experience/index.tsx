@@ -76,7 +76,7 @@ const Experience = () => {
           position={[isMobile ? 0.8 : 1.5, 0.3, -1.5]}
           rotation={[0, 0, Math.PI / 2]}
         >
-          "Real artists ship." — Steve Jobs
+          &quot;Real artists ship.&quot; — Steve Jobs
         </Text>
 
         <group position={[0, -1, 0]} ref={groupRef}>
