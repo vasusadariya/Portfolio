@@ -67,18 +67,6 @@ const Experience = () => {
           {getTitle()}
         </group>
 
-        <Text
-          ref={quoteRef}
-          font="./soria-font.ttf"
-          fontSize={isMobile ? 0.18 : 0.22}
-          color={theme.type === 'dark' ? '#a0a0a0' : '#555'}
-          fillOpacity={0}
-          position={[isMobile ? 0.8 : 1.5, 0.3, -1.5]}
-          rotation={[0, 0, Math.PI / 2]}
-        >
-          &quot;Real artists ship.&quot; — Steve Jobs
-        </Text>
-
         <group position={[0, -1, 0]} ref={groupRef}>
           <GridTile title='WORK AND EDUCATION'
             id="work"
