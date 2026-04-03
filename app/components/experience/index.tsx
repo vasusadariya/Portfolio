@@ -1,6 +1,6 @@
 import { Text, useScroll } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { usePortalStore } from "@stores";
+import { usePortalStore, useThemeStore } from "@stores";
 import { useRef } from "react";
 import { isMobile } from "react-device-detect";
 import * as THREE from 'three';
@@ -10,9 +10,11 @@ import Work from "./work";
 
 const Experience = () => {
   const titleRef = useRef<THREE.Group>(null);
+  const quoteRef = useRef<THREE.Mesh>(null);
   const groupRef = useRef<THREE.Group>(null);
   const data = useScroll();
   const isActive = usePortalStore((state) => !!state.activePortalId);
+  const theme = useThemeStore((state) => state.theme);
 
   const fontProps = {
     font: "./soria-font.ttf",
@@ -37,6 +39,11 @@ const Experience = () => {
         (text as any).fillOpacity = e;
       });
     }
+
+    if (quoteRef.current) {
+      /* eslint-disable  @typescript-eslint/no-explicit-any */
+      (quoteRef.current as any).fillOpacity = e;
+    }
   });
 
   const getTitle = () => {
@@ -59,6 +66,18 @@ const Experience = () => {
         <group ref={titleRef} position={[isMobile ? -1.8 : -3.6, 2, -2]}>
           {getTitle()}
         </group>
+
+        <Text
+          ref={quoteRef}
+          font="./soria-font.ttf"
+          fontSize={isMobile ? 0.18 : 0.22}
+          color={theme.type === 'dark' ? '#a0a0a0' : '#555'}
+          fillOpacity={0}
+          position={[isMobile ? 0.8 : 1.5, 0.3, -1.5]}
+          rotation={[0, 0, Math.PI / 2]}
+        >
+          "Real artists ship." — Steve Jobs
+        </Text>
 
         <group position={[0, -1, 0]} ref={groupRef}>
           <GridTile title='WORK AND EDUCATION'

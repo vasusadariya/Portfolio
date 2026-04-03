@@ -121,17 +121,19 @@ const Footer = () => {
 
   const quoteFontProps = {
     font: "./soria-font.ttf",
-    fontSize: 0.6,
+    fontSize: isMobile ? 0.28 : 0.6,
+    maxWidth: isMobile ? 5 : 20,
+    textAlign: 'center' as const,
     color: theme.type === 'dark' ? 'white' : '#1a1a1a',
   };
 
   return (
     <group position={[0, -44, 18]} rotation={[-Math.PI / 2, 0, 0]} ref={groupRef}>
-      <group position={[isMobile ? -2.5 : -4, 0, 0]}>
+      <group position={[isMobile ? -2.2 : -4, 0, 0]}>
         { getLinks() }
       </group>
-      <group position={[0, 0, -2]}>
-        <Text position={[0, -10, 0]} {...quoteFontProps} ref={quoteRef}>“Real artists ship.” — Steve Jobs</Text>
+      <group position={[0, 0, isMobile ? -1.2 : -2]}>
+        <Text position={[0, -10, 0]} {...quoteFontProps} ref={quoteRef}>"Simplicity is the ultimate sophistication." — Leonardo da Vinci</Text>
       </group>
     </group>
   );
