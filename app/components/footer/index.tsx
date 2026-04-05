@@ -133,7 +133,7 @@ const Footer = () => {
         { getLinks() }
       </group>
       <group position={[0, 0, isMobile ? -1.2 : -2]}>
-        <Text position={[0, -10, 0]} {...quoteFontProps} ref={quoteRef}>&quot;Simplicity is the ultimate sophistication.&quot; — Leonardo da Vinci</Text>
+        <Text position={[0, -10, 0]} {...quoteFontProps} ref={quoteRef}>"The best way to predict the future is to invent it." — Alan Kay</Text>
       </group>
     </group>
   );

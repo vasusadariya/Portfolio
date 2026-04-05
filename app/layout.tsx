@@ -14,10 +14,10 @@ const vercettiFont = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Vasu Sadariya - Devops Engineer",
-  description: "A frontend developer by profession, a creative at heart.",
-  keywords: "Vasu Sadariya, Frontend Engineer, React Developer, Three.js, Creative Developer, Web Development, Angular, JavaScript, TypeScript, Portfolio",
-  authors: [{ name: "Vasu Sadariya", url: "" }],
+  title: "Vasu Sadariya — Fullstack Developer & Web3 Enthusiast",
+  description: "Fullstack developer, Web3 builder, and open-source contributor. ECE undergrad at NIT Surat. Building at the intersection of logic and art.",
+  keywords: "Vasu Sadariya, Fullstack Developer, Web3, React Developer, Three.js, Creative Developer, Web Development, Node.js, Next.js, JavaScript, TypeScript, Solidity, Blockchain, DevOps, NIT Surat, Portfolio",
+  authors: [{ name: "Vasu Sadariya", url: "https://www.vasusadariya.dev/" }],
   creator: "Vasu Sadariya",
   publisher: "Vasu Sadariya",
   formatDetection: {
@@ -36,20 +36,20 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Vasu Sadariya - Devops Engineer",
-    description: "Frontend engineer by profession, creative at heart.",
-    url: "",
-    siteName: "Vasu's Portfolio",
+    title: "Vasu Sadariya — Fullstack Developer & Web3 Enthusiast",
+    description: "Fullstack developer, Web3 builder, and open-source contributor. Building at the intersection of logic and art.",
+    url: "https://www.vasusadariya.dev/",
+    siteName: "Vasu Sadariya — Portfolio",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Vasu Sadariya - Devops Engineer",
-    description: "Frontend engineer by profession, creative at heart.",
+    title: "Vasu Sadariya — Fullstack Developer & Web3 Enthusiast",
+    description: "Fullstack developer, Web3 builder, and open-source contributor. Building at the intersection of logic and art.",
   },
   verification: {
-    google: "GsRYY-ivL0F_VKkfs5KAeToliqz0gCrRAJKKmFkAxBA",
+    google: "pFtOXirAoz2h-GGBqmhrdeQcQBpTRHQpLv7t6HHScxg",
   },
 };
 
@@ -72,7 +72,7 @@ export default function RootLayout({
       >
         {children}
       </body>
-      <GoogleAnalytics gaId={'G-7WD4HM3XRE'}/>
+      <GoogleAnalytics gaId={'G-1DSKDK5XDF'}/>
     </html>
   );
 }
