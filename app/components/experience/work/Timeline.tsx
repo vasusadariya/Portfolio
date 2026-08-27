@@ -9,8 +9,8 @@ import * as THREE from "three";
 import { WORK_TIMELINE } from "@constants";
 import { WorkTimelinePoint } from "@types";
 
-const reusableLeft = new THREE.Vector3(isMobile ? -0.4 : -0.3, 0, -0.1);
-const reusableRight = new THREE.Vector3(isMobile ? 0.4 : 0.3, 0, -0.1);
+const reusableLeft = new THREE.Vector3(isMobile ? -0.8 : -0.6, 0, -0.1);
+const reusableRight = new THREE.Vector3(isMobile ? 0.8 : 0.6, 0, -0.1);
 
 const TimelinePoint = ({ point, diff }: { point: WorkTimelinePoint, diff: number }) => {
   const getPoint = useMemo(() => {
@@ -45,14 +45,14 @@ const TimelinePoint = ({ point, diff }: { point: WorkTimelinePoint, diff: number
       </Box>
       <group>
         <group position={getPoint}>
-          <Text {...textProps} fontSize={isMobile ? 0.35 : 0.3} position={[-diff / 2, 0, 0]}>
+          <Text {...textProps} anchorY="bottom" fontSize={isMobile ? 0.35 : 0.3} position={[-diff / 2, 1.1, 0]}>
             {point.year}
           </Text>
-          <group position={[0, -0.5, 0]}>
-            <Text {...titleProps} fontSize={isMobile ? 0.7 : 0.6} maxWidth={isMobile ? 4 : 3} position={[0, -diff / 2, 0]}>
+          <group position={[0, 0.9, 0]}>
+            <Text {...titleProps} anchorY="top" fontSize={isMobile ? 0.7 : 0.6} maxWidth={8} position={[0, -diff / 2, 0]}>
               {point.title}
             </Text>
-            <Text {...textProps} fontSize={isMobile ? 0.22 : 0.2} maxWidth={isMobile ? 4 : 3} position={[0, -0.4 - diff, 0]}>
+            <Text {...textProps} anchorY="top" fontSize={isMobile ? 0.22 : 0.2} maxWidth={8} position={[0, isMobile ? -0.8 - diff : -0.7 - diff, 0]}>
               {point.subtitle}
             </Text>
           </group>
